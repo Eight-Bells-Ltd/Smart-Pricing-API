@@ -37,7 +37,7 @@ def calculate_price(payload: ServicesPayload):
 
     avg_min = sum(providers_min_prices) / len(providers_min_prices)
     num_bidders = len(possible_agents)
-    max_rounds = 20
+    max_rounds = 10
 
     config_file_path = os.path.join('spm', 'config.yml')
 

@@ -1,29 +1,25 @@
 environment:
-  avg_min: 65.57142857142857
+  avg_min: 50.0
   initial_prices:
-  - 70.0
-  - 58.0
-  - 134.0
   - 110.0
-  - 97.0
-  - 120.0
   - 100.0
-  max_rounds: 20
-  num_bidders: 7
+  - 100.0
+  - 100.0
+  - 100.0
+  max_rounds: 10
+  num_bidders: 5
   possible_agents:
-  - string_1
-  - string_2
-  - string_3
-  - string_4
-  - string_5
-  - string_6
-  - string_7
+  - string
+  - string2
+  - string3
+  - string4
+  - string5
 evaluation:
   num_games: 1
   render_mode: human
 training:
-  batch_size: 256
-  ent_coef: 0.2
+  batch_size: 512
+  ent_coef: 0.9
   learning_rate: 0.001
   seed: 42
-  steps: 600000
+  steps: 1800000

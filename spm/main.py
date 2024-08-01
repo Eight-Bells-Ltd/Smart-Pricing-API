@@ -1,9 +1,9 @@
 import argparse
 import yaml
 from environment.reverse_auction_env import ReverseAuctionEnv
-from training.train import train
+# from training.train import train
 from evaluation.evaluate import evaluate
-from utils.helpers import create_video_from_pngs
+from render.render import create_video_from_pngs
 
 def main():
     parser = argparse.ArgumentParser(description="Reverse Auction Simulation")
@@ -25,10 +25,8 @@ def main():
         eval_config = config['evaluation']
         evaluate(env_fn, num_games=eval_config['num_games'], 
                  render_mode=eval_config['render_mode'], **env_kwargs)
-
-    # Create video after evaluation
-    if args.mode == 'evaluate':
         create_video_from_pngs("outputs/pngs")
+        
 
 if __name__ == "__main__":
     main()
