@@ -29,7 +29,7 @@ def calculate_price(payload: ServicesPayload):
     possible_agents = []
     initial_prices = []
     providers_min_prices = []
-
+    service_name = services[0].service_id
     for service in services:
         possible_agents.append(service.provider_id)
         initial_prices.append(service.maxprice)
@@ -37,7 +37,7 @@ def calculate_price(payload: ServicesPayload):
 
     avg_min = sum(providers_min_prices) / len(providers_min_prices)
     num_bidders = len(possible_agents)
-    max_rounds = 10
+    max_rounds = 9
 
     config_file_path = os.path.join('spm', 'config.yml')
 
@@ -67,7 +67,7 @@ def calculate_price(payload: ServicesPayload):
         data = json.load(json_file)
     
 
-    response= {"provider_id":data['winner'], "price":data['price'], "service_id":"service123"}
+    response= {"provider_id":data['winner'], "price":data['price'], "service_id":service_name}
     return {"services": response}
 
 @smart_pricing_api.exception_handler(ValidationError)
