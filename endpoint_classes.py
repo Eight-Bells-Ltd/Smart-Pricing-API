@@ -3,7 +3,6 @@ from typing import List
 
 class Service(BaseModel):
     provider_id: str
-    consumer_id: str
     minprice: float
     maxprice: float
     service_id: str
