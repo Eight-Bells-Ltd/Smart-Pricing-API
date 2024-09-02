@@ -1,17 +1,17 @@
 environment:
-  avg_min: 35.25
+  avg_min: 35.5
   initial_prices:
   - 120.0
-  - 110.0
-  - 118.0
   - 117.0
+  - 110.0
+  - 114.0
   max_rounds: 9
   num_bidders: 4
   possible_agents:
-  - provider_1
-  - provider_2
-  - provider_3
-  - provider_4
+  - agent_1
+  - agent_2
+  - agent_3
+  - agent_4
 evaluation:
   num_games: 1
   render_mode: human

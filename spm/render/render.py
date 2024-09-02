@@ -1,11 +1,15 @@
 import os
 import cv2
 import matplotlib.pyplot as plt
+import json
 
 def render_env(num_agents, round_number, bids, agent_list, output_folder):
 
     plt.figure(figsize=(10, 6))
-
+    lowest_bid = min(bids)
+    lowest_bid_index = bids.index(lowest_bid)
+    print(f"Round Number: {round_number}")
+    store_round_winner(round_number, lowest_bid, lowest_bid_index)
     # Plot bids
     [plt.plot(i + 1, bids[i], marker='o', label=f"{agent_list[i]} Bid") for i in range(num_agents)]
     
@@ -51,3 +55,27 @@ def create_video_from_pngs(images_folder):
     video.release()
 
     print(f"Video created successfully: {output_video}")
+
+####### WRITE THE WINNER OF EACH ROUND INSIDE THE winner_agents.json #######
+def store_round_winner(round_number, bid, agent):
+
+    winner_agent = {"round": round_number, "agent": f"agent_{agent+1}", "bid": bid}
+    winner_file = "outputs/winner_agents.json"
+    
+    if round_number == 1:
+        with open(winner_file, 'w') as file:
+        # Write the new data directly as a list with one dictionary
+            json.dump([winner_agent], file, indent=4)
+        print("Content replaced successfully!")
+    else:
+        try:
+            with open(winner_file, 'r') as file:
+                winners_data = json.load(file)
+                print(winners_data)
+        except FileNotFoundError:
+        # If the file doesn't exist, start with an empty list
+            winners_data = []
+
+        winners_data.append(winner_agent)
+        with open(winner_file, 'w') as file:
+            json.dump(winners_data, file, indent=4)
