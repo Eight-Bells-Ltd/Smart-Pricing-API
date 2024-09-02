@@ -7,9 +7,9 @@ def render_env(num_agents, round_number, bids, agent_list, output_folder):
 
     plt.figure(figsize=(10, 6))
     lowest_bid = min(bids)
-    lowest_bid_index = bids.index(lowest_bid)
+    lowest_bid_agent = agent_list[bids.index(lowest_bid)]
     print(f"Round Number: {round_number}")
-    store_round_winner(round_number, lowest_bid, lowest_bid_index)
+    store_round_winner(round_number, lowest_bid, lowest_bid_agent)
     # Plot bids
     [plt.plot(i + 1, bids[i], marker='o', label=f"{agent_list[i]} Bid") for i in range(num_agents)]
     
@@ -59,7 +59,7 @@ def create_video_from_pngs(images_folder):
 ####### WRITE THE WINNER OF EACH ROUND INSIDE THE winner_agents.json #######
 def store_round_winner(round_number, bid, agent):
 
-    winner_agent = {"round": round_number, "agent": f"provider_{agent+1}", "bid": bid}
+    winner_agent = {"round": round_number, "agent": f"{agent}", "bid": bid}
     winner_file = "outputs/winner_agents.json"
     
     if round_number == 1:
