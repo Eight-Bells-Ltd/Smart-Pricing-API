@@ -59,7 +59,7 @@ def create_video_from_pngs(images_folder):
 ####### WRITE THE WINNER OF EACH ROUND INSIDE THE winner_agents.json #######
 def store_round_winner(round_number, bid, agent):
 
-    winner_agent = {"round": round_number, "agent": f"agent_{agent+1}", "bid": bid}
+    winner_agent = {"round": round_number, "agent": f"provider_{agent+1}", "bid": bid}
     winner_file = "outputs/winner_agents.json"
     
     if round_number == 1:
