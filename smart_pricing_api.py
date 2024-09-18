@@ -37,7 +37,7 @@ def calculate_price(payload: ServicesPayload):
 
     avg_min = sum(providers_min_prices) / len(providers_min_prices)
     num_bidders = len(possible_agents)
-    max_rounds = 9
+    max_rounds = 10
 
     config_file_path = os.path.join('spm', 'config.yml')
     winner_agents_file_path = os.path.join('spm', 'outputs', 'winner_agents.json')
@@ -56,7 +56,7 @@ def calculate_price(payload: ServicesPayload):
     with open(config_file_path, 'w') as file:
         yaml.dump(config_data, file, default_flow_style=False)
 
-    print("ok")
+   
 
     subprocess.run(['python', 'main.py', '--mode', 'evaluate'], cwd='spm')
 
@@ -73,10 +73,10 @@ def calculate_price(payload: ServicesPayload):
     
     ######### SAFETY MECHANISM TO ENSURE THE FINAL PRICE DOES NOT FALL UNDER A MINIMUM PRICE #########
     if auction_result['price'] < providers_min_prices[possible_agents.index(auction_result['winner'])]:
-        print(f"Providers min price is {providers_min_prices[possible_agents.index(auction_result['winner'])]} and auction result is {auction_result['price']}")
+        #print(f"Providers min price is {providers_min_prices[possible_agents.index(auction_result['winner'])]} and auction result is {auction_result['price']}")
         for winner in reversed(winners_data):
             if winner['bid'] >= providers_min_prices[possible_agents.index(winner['agent'])]:
-                print(f"True winner is {winner['agent']} with price {winner['bid']} and min price {providers_min_prices[possible_agents.index(winner['agent'])]}")
+                print(f"Winner is {winner['agent']} with price {winner['bid']} and min price {providers_min_prices[possible_agents.index(winner['agent'])]}")
                 auction_result['winner'] = winner['agent']
                 auction_result['price'] = winner['bid']
                 break

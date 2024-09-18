@@ -66,12 +66,12 @@ def store_round_winner(round_number, bid, agent):
         with open(winner_file, 'w') as file:
         # Write the new data directly as a list with one dictionary
             json.dump([winner_agent], file, indent=4)
-        print("Content replaced successfully!")
+        print(winner_agent)
     else:
         try:
             with open(winner_file, 'r') as file:
                 winners_data = json.load(file)
-                print(winners_data)
+                
         except FileNotFoundError:
         # If the file doesn't exist, start with an empty list
             winners_data = []
@@ -79,3 +79,4 @@ def store_round_winner(round_number, bid, agent):
         winners_data.append(winner_agent)
         with open(winner_file, 'w') as file:
             json.dump(winners_data, file, indent=4)
+            print(winners_data)

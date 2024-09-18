@@ -28,6 +28,7 @@ def evaluate(env_fn, num_games: int = 100, render_mode: str | None = None, **env
 
     for i in range(num_games):
         env.reset(seed=i)
+        
         for agent in env.agent_iter():
             obs, reward, termination, truncation, _ = env.last()
             rewards[agent] += reward
@@ -36,7 +37,7 @@ def evaluate(env_fn, num_games: int = 100, render_mode: str | None = None, **env
                 if agent == env.agents[-1]: env.render()
 
             if termination or truncation:
-                env.render()
+                #env.render()
                 break
 
             else:
@@ -50,6 +51,6 @@ def evaluate(env_fn, num_games: int = 100, render_mode: str | None = None, **env
     env.close()
 
     avg_reward = sum(rewards.values()) / len(rewards.values())
-    print("Rewards: ", rewards)
-    print(f"Avg reward: {avg_reward}")
+    #print("Rewards: ", rewards)
+    #print(f"Avg reward: {avg_reward}")
     return avg_reward

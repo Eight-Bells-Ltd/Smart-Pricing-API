@@ -33,7 +33,7 @@ class ReverseAuctionEnv(ParallelEnv):
         return Dict({
             'current_rank': Discrete(len(self.possible_agents) + 1),
             'previous_rank': Discrete(len(self.possible_agents) + 1),
-            'current_round': Discrete(self.max_rounds + 1)
+            'current_round': Discrete(self.max_rounds+1)
         })
 
     @functools.lru_cache(maxsize=None)
@@ -74,9 +74,10 @@ class ReverseAuctionEnv(ParallelEnv):
     def step(self, actions):
 
         if not actions: return {}, {}, {}, {}, {}
-
-        self.done = self.round == self.max_rounds
         
+        
+        self.done = self.round == self.max_rounds
+        #print(f"Self round: {self.round} and max round is {self.max_rounds} and Done={self.done}")
         # Update bids based on actions
         for agent, action in actions.items():
             agent_id = self.agent_name_mapping[agent]

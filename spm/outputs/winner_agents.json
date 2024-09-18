@@ -1,52 +1,52 @@
 [
     {
         "round": 1,
-        "agent": "provider5",
-        "bid": 110.0
+        "agent": "string4",
+        "bid": 111.0
     },
     {
         "round": 2,
-        "agent": "provider5",
-        "bid": 77.0
+        "agent": "string4",
+        "bid": 77.69999999999999
     },
     {
         "round": 3,
-        "agent": "provider1",
+        "agent": "string1",
         "bid": 50.4
     },
     {
         "round": 4,
-        "agent": "provider2",
-        "bid": 45.08
+        "agent": "string1",
+        "bid": 45.36
     },
     {
         "round": 5,
-        "agent": "provider3",
-        "bid": 34.57439999999999
+        "agent": "string2",
+        "bid": 35.8092
     },
     {
         "round": 6,
-        "agent": "provider1",
-        "bid": 39.9168
+        "agent": "string3",
+        "bid": 40.36032
     },
     {
         "round": 7,
-        "agent": "provider2",
-        "bid": 34.7116
+        "agent": "string1",
+        "bid": 37.739520000000006
     },
     {
         "round": 8,
-        "agent": "provider1",
-        "bid": 44.706816
+        "agent": "string5",
+        "bid": 41.6304
     },
     {
         "round": 9,
-        "agent": "provider4",
-        "bid": 44.78208
+        "agent": "string4",
+        "bid": 36.184579199999995
     },
     {
-        "round": 9,
-        "agent": "provider1",
-        "bid": 34.424248320000004
+        "round": 10,
+        "agent": "string5",
+        "bid": 37.883663999999996
     }
 ]
